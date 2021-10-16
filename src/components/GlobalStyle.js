@@ -6,11 +6,18 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   box-sizing: border-box;
 }
+
 body{
   background-color: #1b1b1b;
   color: #fff;
   font-family: "Inter","Aril",sans-serif;
+  overflow-x: hidden;
 }
+html{
+        @media (max-width: 1500px) {
+            font-size: 85%;
+        }
+    }
 button{
   font-size: 1.1rem;
   cursor: pointer;

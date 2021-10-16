@@ -5,11 +5,14 @@ import money from "../Images/money.svg";
 import teamwork from "../Images/teamwork.svg";
 import home2 from "../Images/home2.png";
 import styled from 'styled-components';
-import { About, Description, Image } from '../style';
+import { About, Image } from '../style';
+import { ScrollAnim } from "../Animation";
+import { Scroll } from './useScroll';
 
 const ServisesSection = () => {
+  const [element, controls] = Scroll();
   return (
-    <Services className='services'>
+    <Services className='services' ref={element} variants={ScrollAnim} animate={controls} initial='hidden'>
       <div className="services__info">
         <h2>High <span>quality</span>services</h2>
         <Cards>
@@ -54,18 +57,27 @@ const ServisesSection = () => {
 const Services = styled(About)`
   h2{
     margin-bottom: 5rem;
+    @media only screen and (max-width:500px){
+     font-size: 22px;
+  }
   }
   p{
     width: 70%;
     margin: 0;
   }
+  @media only screen and (max-width:500px){
+     width:350px;
+     margin-right: 0;
+  }
 `;
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media only screen and (max-width:1500px){
+   justify-content: center;
+  }
 `;
 const Card = styled.div`
-  flex-basis: 20rem;
   margin-bottom: 4rem;
   .icon__wrapper{
     display: flex;
